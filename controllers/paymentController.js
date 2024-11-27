@@ -1,4 +1,4 @@
-const paypal = require('@paypal/checkout-server-sdk');
+const paypal = require('@paypal/paypal-server-sdk');
 const Booking = require('../models/Booking');  // Assuming the booking model is already created.
 
 let environment = new paypal.core.SandboxEnvironment(
