@@ -2,14 +2,13 @@ const Flight = require("../models/Flight");
 
 const formatDate = (dateStr) => {
     const date = new Date(dateStr);
-    return date.toLocaleString(); // Customize this format if needed
+    return date.toLocaleString(); 
   };
   
   const getFlights = async (req, res) => {
     try {
       const flights = await Flight.find();
-      
-      // Format the departure and arrival times using formatDate
+
       const formattedFlights = flights.map(flight => {
         return {
           ...flight.toObject(),
@@ -23,7 +22,7 @@ const formatDate = (dateStr) => {
       res.status(500).json({ message: error.message });
     }
   };
-// Search flights
+
 const searchFlights = async (req, res) => {
     const { departure, arrival, departureDate, bookingClass } = req.query;
   

@@ -1,8 +1,6 @@
-// controllers/bookingController.js
 const Booking = require("../models/Booking");
 const Flight = require("../models/Flight");
 
-// Create a booking
 const createBooking = async (req, res) => {
   const { flightId, passengerName, passengerEmail, seatsBooked, bookingClass } = req.body;
 
@@ -30,13 +28,12 @@ const createBooking = async (req, res) => {
 
     await booking.save();
 
-    // Update the flight's available seats
     flight.availableSeats -= seatsBooked;
     await flight.save();
 
-    res.status(201).json(booking); // Return the booking details as a response
+    res.status(201).json(booking); 
   } catch (error) {
-    console.error('Error in createBooking controller:', error); // Log the error
+    console.error('Error in createBooking controller:', error); 
     res.status(500).json({ message: error.message });
   }
 };

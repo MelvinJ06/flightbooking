@@ -1,5 +1,5 @@
 {
     "PORT": 5555,
-    "MONGO_URI": "mongodb://127.0.0.1:27017/flight-reservation"
+    "MONGO_URI": "mongodb+srv://melvin:MelvinJ@flightreservation.gbbof.mongodb.net/?retryWrites=true&w=majority&appName=flightreservation"
   }
   

@@ -14,7 +14,7 @@ connectDB();
 const app = express();
 
 // Use middleware
-app.use(cors());  // Now this will work
+app.use(cors());  
 app.use(express.json());
 
 // Routes

@@ -1,5 +1,3 @@
-// models/Flight.js
-
 const mongoose = require("mongoose");
 
 const flightSchema = new mongoose.Schema({
