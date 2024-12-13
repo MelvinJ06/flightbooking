@@ -8,7 +8,7 @@ const paymentRoutes = require('./routes/paymentRoutes');
 
 
 dotenv.config();
-connectDB();
+
 
 // Initialize the app object here
 const app = express();
@@ -29,6 +29,7 @@ app.use((req, res, next) => {
 
 const PORT = process.env.PORT || 5555;
 
-app.listen(PORT, () => {
+app.listen(PORT, async() =>{
+  await connectDB();
   console.log(`Server running on port ${PORT}`);
 });
