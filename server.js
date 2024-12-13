@@ -5,24 +5,20 @@ const connectDB = require("./config/db");
 const flightRoutes = require("./routes/flightRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 const paymentRoutes = require('./routes/paymentRoutes');
-
+const userRoutes = require('./routes/userRoutes');
 
 dotenv.config();
 
-
-// Initialize the app object here
 const app = express();
 
-// Use middleware
 app.use(cors());  
 app.use(express.json());
 
-// Routes
 app.use("/api/flights", flightRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use('/api/paypal', paymentRoutes);
+app.use('/api/users',userRoutes);
 
-// Error handling
 app.use((req, res, next) => {
   res.status(404).json({ message: "API route not found" });
 });
