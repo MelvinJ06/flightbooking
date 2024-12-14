@@ -9,17 +9,17 @@ const userRoutes = require('./routes/userRoutes');
 
 dotenv.config();
 
-const app = express(); // Initialize 'app' here before using it
+const app = express(); 
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://flightbooking-2.onrender.com"],
+  origin: "https://flightbooking-2.onrender.com", 
   methods: "GET,POST,PUT,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type, Authorization, Origin, X-Requested-With, Accept, Access-Control-Allow-Headers",
+  allowedHeaders: "Content-Type, Authorization",
   credentials: true, 
 };
 
+
 app.use(cors(corsOptions));  
-app.options('*', cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/flights", flightRoutes);
