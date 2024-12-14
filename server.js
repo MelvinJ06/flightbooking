@@ -9,17 +9,14 @@ const userRoutes = require('./routes/userRoutes');
 
 dotenv.config();
 
+const app = express(); // Initialize 'app' here before using it
+
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://flightbooking-2.onrender.com"], 
+  origin: ["http://localhost:3000", "https://flightbooking-2.onrender.com"],
   methods: "GET,POST,PUT,DELETE,OPTIONS",
   allowedHeaders: "Content-Type, Authorization",
   credentials: true, 
 };
-
-app.use(cors(corsOptions));
-
-
-const app = express();
 
 app.use(cors(corsOptions));  
 app.use(express.json());
@@ -27,7 +24,7 @@ app.use(express.json());
 app.use("/api/flights", flightRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use('/api/paypal', paymentRoutes);
-app.use('/api/users',userRoutes);
+app.use('/api/users', userRoutes);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: "API route not found" });
@@ -35,7 +32,7 @@ app.use((req, res, next) => {
 
 const PORT = process.env.PORT || 5555;
 
-app.listen(PORT, async() =>{
+app.listen(PORT, async () => {
   await connectDB();
   console.log(`Server running on port ${PORT}`);
 });
