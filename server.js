@@ -12,7 +12,6 @@ dotenv.config();
 const corsOptions = {
   origin: "https://flightbooking-2.onrender.com/api", 
   methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type, Authorization",
   credentials: true, 
 };
 
