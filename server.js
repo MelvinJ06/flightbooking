@@ -14,11 +14,12 @@ const app = express(); // Initialize 'app' here before using it
 const corsOptions = {
   origin: ["http://localhost:3000", "https://flightbooking-2.onrender.com"],
   methods: "GET,POST,PUT,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type, Authorization",
+  allowedHeaders: "Content-Type, Authorization, Origin, X-Requested-With, Accept, Access-Control-Allow-Headers",
   credentials: true, 
 };
 
 app.use(cors(corsOptions));  
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/flights", flightRoutes);
