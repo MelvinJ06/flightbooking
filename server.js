@@ -10,12 +10,14 @@ const userRoutes = require('./routes/userRoutes');
 dotenv.config();
 
 const corsOptions = {
-  origin: "https://flightbooking-2.onrender.com/api", // React frontend URL
+  origin: "https://flightbooking-2.onrender.com/api", 
   methods: "GET,POST,PUT,DELETE",
-  credentials: true, // Allow cookies and headers
+  credentials: true, 
 };
 
 const app = express();
+
+app.use(cors());
 
 app.use(cors(corsOptions));  
 app.use(express.json());
