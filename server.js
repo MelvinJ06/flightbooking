@@ -31,7 +31,7 @@ app.use((req, res, next) => {
   res.status(404).json({ message: "API route not found" });
 });
 
-const PORT = process.env.PORT || 5555;
+const PORT = process.env.PORT || 5556;
 
 app.listen(PORT, async () => {
   await connectDB();
